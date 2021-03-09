@@ -1,11 +1,12 @@
 import React , {Component} from 'react';
 
+import PropTypes from 'prop-types';
 class Headline extends Component {
 
   
     render(){
 
-        const { header, desc } = this.props;
+        const { header, desc , author } = this.props;
 
         if(!header){
             return null;
@@ -17,8 +18,26 @@ class Headline extends Component {
                 <p data-test="desc">
                     {desc}
                 </p>
+
             </div>
         )
     }
 }
+
+
+Headline.propTypes = {
+    header:PropTypes.string,
+    desc:PropTypes.string, 
+    author:PropTypes.arrayOf(PropTypes.shape({
+      fname:PropTypes.string,
+      lname:PropTypes.string,
+      email:PropTypes.string,
+      age:PropTypes.number,
+      hired:PropTypes.bool
+    }))
+}
+
+
+
 export default Headline;
+
