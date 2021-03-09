@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import './app.scss';
 
 import Header  from './component/header';
-
+import Headline from './component/headline';
 class App extends Component {
 
   render() {
@@ -12,7 +12,10 @@ class App extends Component {
     return (
       <div className="App" >
         <Header />
-       
+        <section className="main">
+          <Headline header="Posts" desc="click the button to get the posts" />
+          <Headline  />
+        </section>
          
       </div>
     );
