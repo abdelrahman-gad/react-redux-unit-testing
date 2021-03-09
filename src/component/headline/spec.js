@@ -41,16 +41,12 @@ describe('Headline Component', () => {
 
     describe('Have NO props', () => {
         let wrapper;
-        beforeEach(() => {
-            const props = {
-                header: 'Test Header',
-                desc: 'Test Desc'
-            };
-            wrapper = setUp(props);
+        beforeEach(() => {      
+            wrapper = setUp();
         });
 
         it('Should not  render', () => {
-            const component = findByTestAtrr(wrapper, '');
+            const component = findByTestAtrr(wrapper, 'HeadlineComponent');
             expect(component.length).toBe(0);
         });
     });
