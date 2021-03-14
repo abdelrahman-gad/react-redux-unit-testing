@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 class SharedButton extends Component {
 
     submitEvent(){
+        console.log('shared button got clickerd');
         if(this.props.submitEvent){
             this.props.submitEvent();
         }
