@@ -21,7 +21,7 @@ class SharedButton extends Component {
 
 }
 
-SharedButton.PropTypes = {
+SharedButton.propTypes = {
     buttonText:PropTypes.string,
     emitEvent:PropTypes.func
 };
