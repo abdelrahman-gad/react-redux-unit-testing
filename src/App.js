@@ -5,6 +5,7 @@ import './app.scss';
 import Header  from './component/header';
 import Headline from './component/headline';
 import {connect} from 'react-redux';
+import {compose} from 'redux';
 import SharedButton from './component/button';
 import ListItem from './component/listItem';
 import {fetchPosts} from './actions';
@@ -17,11 +18,10 @@ class App extends Component {
 
   fetch(){
      console.log('called fetch');
-     this.props.fetchPosts();
-    
+     this.props.fetchPosts();    
   }
   render() {
-    const {posts} = this.props;
+   const {posts  } = this.props;
    const configButton = {
      buttonText:'Get Posts',
      submitEvent:this.fetch
@@ -67,8 +67,8 @@ const mapStateToProps = (state)=>{
 
 const mapDispatchToProps = (dispatch)=>{
   return {
-    fetchPosts:dispatch(fetchPosts)
+    fetchPosts: () => dispatch(fetchPosts)
   };
 }
 
-export default connect(mapStateToProps,mapDispatchToProps) (App);
+export default compose(connect(mapStateToProps,{fetchPosts})) (App);
