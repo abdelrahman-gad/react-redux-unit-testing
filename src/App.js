@@ -65,10 +65,10 @@ const mapStateToProps = (state)=>{
   }
 }
 
-const mapDispatchToProps = (state,dispatch)=>{
+const mapDispatchToProps = (dispatch)=>{
   return {
-    
+    fetchPosts:dispatch(fetchPosts)
   };
 }
 
-export default connect(mapStateToProps,{fetchPosts}) (App);
+export default connect(mapStateToProps,mapDispatchToProps) (App);
