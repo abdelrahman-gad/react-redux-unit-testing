@@ -1,7 +1,7 @@
+import React from 'react';
 import App from './App';
 import { shallow } from 'enzyme';
-import { findByTestAtrr, testStore } from './../Utils';
-import React from 'react';
+import { findByTestAtrr, testStore } from './utils';
 
 const setUp = (initialState={}) => {
     const store = testStore(initialState);
@@ -12,7 +12,7 @@ const setUp = (initialState={}) => {
 describe('App Component', () => {
 
     let wrapper;
-    
+
     beforeEach(() => {
         const initialState = {
             posts: [{

@@ -24,7 +24,7 @@ class App extends Component {
    const {posts  } = this.props;
    const configButton = {
      buttonText:'Get Posts',
-     submitEvent:this.fetch
+     emitEvent:this.fetch
    }
    const tempArr = [{
      fname:'abduerrahman',
@@ -38,7 +38,7 @@ class App extends Component {
       <div className="App" data-test="appComponent" >
         <Header />
         <section className="main">
-          <Headline header="fvs" desc="click the button to get the posts" author={tempArr} />
+          <Headline header="fetch all posts" desc="click the button to get the posts" author={tempArr} />
           {/* <Headline  /> */}
           <SharedButton  {...configButton}  />
           {posts.length>0 && 
