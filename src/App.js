@@ -9,23 +9,38 @@ import {compose} from 'redux';
 import SharedButton from './component/button';
 import ListItem from './component/listItem';
 import {fetchPosts} from './actions';
+
+
+const initialState = { hideBtn:false};
+
 class App extends Component {
 
   constructor(props){
     super(props);
     this.fetch =this.fetch.bind(this);
+    this.state={ 
+      ...initialState
+    }
   }
-
   fetch(){
      console.log('called fetch');
      this.props.fetchPosts();    
+     this.exampleMethod_updatesState();
+  }
+  exampleMethod_updatesState(){ 
+    const {hideBtn } = this.state;
+    this.setState({
+      hideBtn:!hideBtn
+    });
   }
   render() {
    const {posts  } = this.props;
+   const {hideBtn} = this.state;
    const configButton = {
      buttonText:'Get Posts',
      emitEvent:this.fetch
    }
+ 
    const tempArr = [{
      fname:'abduerrahman',
      lname:'gad',
@@ -40,7 +55,8 @@ class App extends Component {
         <section className="main">
           <Headline header="fetch all posts" desc="click the button to get the posts" author={tempArr} />
           {/* <Headline  /> */}
-          <SharedButton  {...configButton}  />
+        
+          {!hideBtn &&  <SharedButton  {...configButton}  /> }
           {posts.length>0 && 
                 <div>
                   {
